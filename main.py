@@ -13,7 +13,7 @@ estrategia = {
    'first-fit': 1,
    'best-fit': 2,
    'next-fit': 3,
-   'worst-fit' 4
+   'worst-fit': 4
    }
 
 # TIEMPO DE SELECCION

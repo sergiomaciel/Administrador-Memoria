@@ -1,18 +1,27 @@
+from proceso import Proceso
+
 class Particion():
 
-   id = 1
+   id = 0
 
-   def __init__(self, nombre:str, memoria:int, tiempo:int, vacio:bool=False):
-      self.id = Particion.id
-      self.nombre = nombre
-      self.memoria = memoria
-      self.tiempo = tiempo
-      self.vacio = vacio
+   def __init__(self, tamaño:int=0, libre:bool=True):
       Particion.id +=1
+      self.id = Particion.id
+      self.tamaño = tamaño
+      self.libre = libre
+      self.proceso = None
       
+   
+   def asignarProceso(self, proceso:Proceso):
+      self.proceso = proceso
+      self.libre = False
+      self.tamaño = proceso.tamaño
 
-   def liberar(self):
-      self.nombre = '---'
-      self.tiempo = 0
-      self.vacio = True
 
+   def eliminarProceso(self):
+      self.proceso = None
+      self.libre = True
+
+
+   def __str__(self):
+      return 'ID:'+str(self.id)+'  Tamaño:'+str(self.tamaño)+' Mb  Estado:'+str(self.libre)
