@@ -1,26 +1,36 @@
 import os
+import re
+from proceso import Proceso
 
-class CargarArchivo():
+class Archivo():
 
-   def __init__(self, nombre):
-      self.__archivo = open(nombre+".txt", "r")
-
-   def procesar(self):
-      trabajos = []
-
-      for tanda in self.__archivo.readlines():
-         data = tanda.split(";")
-         trabajo = {
-            'nombre': data[0],
-            'arribo': data[1],
-            'tiempo-total': data[2],
-            'cantidad-memoria': data[3]
-         }
-         trabajos.append(trabajo)
+   def leer(self, nombre):
+      tanda = []
+      archivo = open(nombre+".txt", "r")
+      for trabajo in archivo.readlines():
+         data = trabajo.split(";")
+         proceso = Proceso(
+            nombre=data[0],
+            arribo=int(re.sub("\s+","", data[1])),
+            tiempoTotal=int(re.sub("\s+","", data[2])),
+            tamaño=int(re.sub("\s+","", data[3]))
+         )
+         tanda.append(proceso)
             
-      self.__archivo.close()
-      return trabajos
+      archivo.close()
+      return tanda
+
+   def escribir(self, nombre):
+
+      archivo = open(nombre+".txt", "w")
+      archivo.write('Hola \n')
+      # for linea in registro:
+      #    archivo.write(linea+'\n')
+      
+      archivo.close()
+      pass
 
 if __name__ == "__main__":
-   A = CargarArchivo('archivo1')
-   print(A.procesar())
+   A = Archivo()
+   print(A.leer('archivo1'))
+   

@@ -4,7 +4,7 @@ from memoria import Memoria
 
 class AdminMemoria():
 
-   def __init__(self, memoria:Memoria, estrategia, tiempoSeleccion, tiempoCarga, tiempoLiberacion):
+   def __init__(self, memoria:Memoria, estrategia, tiempoSeleccion:int, tiempoCarga:int, tiempoLiberacion:int):
       
       self.memoria = memoria
       self.estrategia = estrategia
@@ -12,26 +12,33 @@ class AdminMemoria():
       self.tiempoCarga = tiempoCarga
       self.tiempoLiberacion = tiempoLiberacion
 
+      self.procesos = []
+      self.particionesLiberar = []
+
       self.posUtimo = 0
    
 
-   def agregarProceso(self, proceso:Proceso):
-      
-      # def switch(estrategia ,proceso):
-      #    sw = {
-      #       'first-fit': self.__estrategia_FirstFit(proceso),
-      #       'best-fit': self.__estrategia_BestFit(proceso),
-      #       'next-fit': self.__estrategia_NextFit(proceso),
-      #       'worst-fit':self.__estrategia_WorstFit(proceso)            
-      #    }
-      #    return sw.get(estrategia)
+   def arriboProceso(self, proceso:Proceso):
+ 
+      memmoriaOld = self.memoria.libre
 
-      # switch(self.estrategia, proceso)
-      # self.__estrategia_FirstFit(proceso)
-      # self.__estrategia_BestFit(proceso)
-      # self.__estrategia_NextFit(proceso)
-      self.__estrategia_WorstFit(proceso)
-      pass
+      if (self.estrategia == 'first-fit'):
+         self.__estrategia_FirstFit(proceso)
+
+      if (self.estrategia == 'best-fit'):
+         self.__estrategia_BestFit(proceso)
+      
+      if (self.estrategia == 'next-fit'):
+         self.__estrategia_NextFit(proceso)
+      
+      if (self.estrategia == 'worst-fit'):
+         self.__estrategia_WorstFit(proceso)
+      
+      # Verifica si se cargo el proceso en memoria
+      if (memmoriaOld == self.memoria.libre):
+         return False
+      else:
+         return True
 
 
    def __estrategia_FirstFit(self, proceso:Proceso):        
@@ -52,7 +59,8 @@ class AdminMemoria():
          
          i+=1
       
-      pass   
+      return fin   
+
 
    def __estrategia_BestFit(self, proceso:Proceso):
       # Selecciona la particion que mejor se ajusta al proceso
@@ -155,7 +163,45 @@ class AdminMemoria():
       pass
 
 
+   def tiempo(self):
+      # Decrementa en 1 los procesos activos & con time>0
+      for particion in self.memoria.particiones:
+         if (particion.libre == False)and(particion.proceso.tiempoTotal>0):
+            particion.proceso.tiempoTotal -=1
+            if (particion.proceso.tiempoTotal <= 0):
+               self.particionesLiberar.append(particion)
+
+      pass
+
    
+   def liberacion(self):
+      
+      exito = False
+      particionLiberar = None
+      procesoSaliente = None
+      if (len(self.particionesLiberar)!=0):
+         allParticiones = self.memoria.particiones
+
+         particionLiberar = self.particionesLiberar.pop(0)
+         procesoSaliente = particionLiberar.proceso
+         
+         # BUSCAR la particion a eliminar
+         i = 0
+         fin = False
+         while ((i<=len(allParticiones)-1) and (fin==False)):
+            if (allParticiones[i].id == particionLiberar.id):
+               print('SACAR PROCESO: '+str(particionLiberar.proceso))
+               self.eliminarProceso(i)
+               fin = True
+               exito = True
+            i+=1
+      
+      return {
+         'exito':exito,
+         'particion':particionLiberar,
+         'proceso':procesoSaliente
+         }
+
    def eliminarProceso(self, pos):
       self.memoria.vaciarParticion(pos)
       
@@ -163,10 +209,11 @@ class AdminMemoria():
          self.posUtimo-=1
 
       if (self.verificarCompactacion(pos)):
-         print('COMPACTAR PARTICION '+str(pos))
+         print('COMPACTAR PARTICION '+str(self.memoria.particiones[pos]))
          self.compactar(pos)
       else:
          print('SIN COMPACTACION')
+
 
    def verificarCompactacion(self, pos):
       particiones = self.memoria.particiones
@@ -215,20 +262,7 @@ class AdminMemoria():
       self.memoria.insertarEntre(newPartUnif,posBase,posTope)
       pass
 
-def imprimirMemoria(M:Memoria):
-   # IMPRIMIR
-   print()
-   print('MEMORIA - '+str(M.tamaño)+' MB')
-   i=0
-   inicio = 0
-   for particion in M.particiones:
-      print(' POS:'+str(i)+' Dir.Inicio: '+str(inicio)+' |Particion|  '+str(particion)+'   -->   |Proceso|   '+ str(particion.proceso))
-      i+=1
-      inicio += particion.tamaño
 
-   print('MEMORIA LIBRE: '+str(M.libre)+' MB')
-   print('CANT PARTICIONES: '+str(len(M.particiones)))
-   print('---------------------------------')
 
 if __name__ == "__main__":
    import random
@@ -243,7 +277,7 @@ if __name__ == "__main__":
          tiempoTotal=random.randrange(50)+1,
          tamaño=random.randrange(10)+35
          )
-      AdmMem.agregarProceso(P)
+      AdmMem.arriboProceso(P)
    
    print('NUEVA TANDA')
    imprimirMemoria(AdmMem.memoria)
@@ -263,7 +297,7 @@ if __name__ == "__main__":
          tiempoTotal=random.randrange(50)+1,
          tamaño=random.randrange(10)+10
          )
-      AdmMem.agregarProceso(P)
+      AdmMem.arriboProceso(P)
 
    imprimirMemoria(AdmMem.memoria)
 
