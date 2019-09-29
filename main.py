@@ -9,10 +9,10 @@ from memoria import Memoria
 from adminMemoria import AdminMemoria
 
 # ARCHIVO
-tanda = Archivo().leer('archivo1')
+tanda = Archivo().leer('archivo2')
 
 # MEMORIA 
-tamañoMemoria = 512
+tamañoMemoria = 150
 
 # ESTRAGIA
 estrategia = [
@@ -36,7 +36,7 @@ memoria = Memoria(tamañoMemoria)
 
 admin = AdminMemoria(
    memoria,
-   estrategia[3],
+   estrategia[0],
    tiempoSelecion,
    tiempoCarga,
    tiempoLiberacion
@@ -72,64 +72,116 @@ def imprimirMemoria(M:Memoria):
 
 # Simular CPU
 simular = True
+# Estadistica
+indiceFragmantacion = 0
+countFragamntacion = True
+tiemposRetorno = []
+tiempoMedioRetorno = 0
 # Contador
 T = 0
 print('T: '+str(T)+' --> Inicializar Memoria')
 imprimirMemoria(admin.memoria)
-T+=1 
+T+=1
+# indiceFragmantacion += admin.memoria.libre
 while (simular):
 
-   if (len(procesos)!=0):      
+   if ((len(procesos)!=0)or(len(admin.memoria.particiones) > 1 )):      
             
       # LIBERACION (Mientras existan procesos a liberar)
       estado = admin.liberacion()
       while (estado['exito']):         
          Tliberacion = T
          for i in range(tiempoLiberacion):
-            print('T: '+str(Tliberacion)+':   --> Trabajando... ')
+            print('T: '+str(Tliberacion)+':   --> Trabajando... '+' MemLib.: '+str(admin.memoria.libre))
             Tliberacion +=1
+            if (countFragamntacion):
+               indiceFragmantacion += admin.memoria.libre
+
             admin.tiempo()
-         
+                     
          T+=tiempoLiberacion
          print('--- LIBERACION COMPLETADA ---')
+         tiemposRetorno.append({
+            'proceso':estado['proceso'].nombre,
+            'arribo':estado['proceso'].arribo,
+            'tiempoRetorno':T - 1
+         })
+         admin.arribos = True #Permite nuevos arrivos
          estado = admin.liberacion()
          imprimirMemoria(admin.memoria)
       
        # SELECCION
-      proceso = procesos[0]     
-      if (proceso.arribo <= T):
-         Tseleccion = T
-         for i in range(tiempoSelecion):
-            print('T: '+str(Tseleccion)+':   --> SELECCIONANDO PARTICION AL PROCESO: '+str(proceso))
-            Tseleccion += 1
-            admin.tiempo()
-
-         T+=tiempoSelecion
-         
-         # ASIGNACION
-         if (admin.arriboProceso(proceso)):
-            Tasignacion = T
-            for i in range(tiempoCarga):
-               print('T: '+str(Tasignacion)+':   --> CARGANDO PROCESO: '+str(proceso))
-               Tasignacion += 1
+      if (len(procesos)!=0):
+         proceso = procesos[0]
+         # Verifica que esten permitidos los arribos y sea el turno del proceso
+         if ((admin.arribos)and(proceso.arribo <= T)):
+            Tseleccion = T
+            for i in range(tiempoSelecion):
+               print('T: '+str(Tseleccion)+':   --> SELECCIONANDO PARTICION AL PROCESO: '+str(proceso)+' MemLib: '+str(admin.memoria.libre))
+               Tseleccion += 1
                admin.tiempo()
+               if (countFragamntacion):
+                  indiceFragmantacion += admin.memoria.libre
+
+            T+=tiempoSelecion
             
-            T+=tiempoCarga
-            
-            imprimirMemoria(admin.memoria)    
-            procesos.pop(0)
-            
+            # ASIGNACION
+            procesoAsig = Proceso(
+               proceso.nombre,
+               proceso.arribo,
+               proceso.tiempoTotal + tiempoCarga,
+               proceso.tamaño
+               )
+            memoriaLibreAsignacion = admin.memoria.libre
+            if (admin.arriboProceso(procesoAsig)):
+               Tasignacion = T
+               for i in range(tiempoCarga):
+                  print('T: '+str(Tasignacion)+':   --> CARGANDO PROCESO: '+str(proceso.nombre)+' MemLib: '+str(memoriaLibreAsignacion))
+                  Tasignacion += 1
+                  admin.tiempo()
+                  # Verifica | Si no es el ultimo proceso en arribar cuanta IndFrag / Detiene la cuenta.
+                  indiceFragmantacion += memoriaLibreAsignacion
+               
+               T+=tiempoCarga
+               
+               imprimirMemoria(admin.memoria)
+               procesos.pop(0)
+               if (len(procesos)==0):
+                  countFragamntacion = False
+            else:
+               if (proceso.tamaño > admin.memoria.tamaño):
+                  print('T: '+str(T)+':   --> EL PROCESO: '+str(proceso.nombre)+' EXEDE EL TAMAÑO DE LA MEMORIA')
+               
+         else:
+            print('T: '+str(T)+':   --> Sin Arribos'+' MemLib: '+str(indiceFragmantacion))
+            # TIEMPO  
+            T+=1         
+            admin.tiempo()
+            if (countFragamntacion):
+               indiceFragmantacion += admin.memoria.libre
       else:
-         print('T: '+str(T)+':   --> Sin Arribos')
-         # TIEMPO           
+         print('T: '+str(T)+':   --> Sin Arribos - Tanda Completada')
+         # TIEMPO  
+         T+=1         
          admin.tiempo()
-         T+=1
+         imprimirMemoria(admin.memoria)
 
    else:
       simular = False
    
+print('ESTRATEGIA: '+admin.estrategia)
+print('FRAGMENTACION EXTERNA: '+str(indiceFragmantacion))
+print('TIEMPO DE RETORNO | PROCESOS | ')
+for dato in tiemposRetorno:
+   tiempoRetorno = dato['tiempoRetorno'] - dato['arribo']
+   print(
+      '| '+str(dato['proceso'])+' |'+
+      ' Arribo: '+str(dato['arribo'])+
+      ' Retorno: '+str(dato['tiempoRetorno'])+
+      ' Tiempo Retorno: '+str(tiempoRetorno)
+   )
+   tiempoMedioRetorno += tiempoRetorno
 
-# print('PARTICIONES A LIBERAR')
-# for particiones in admin.particionesLiberar:
-#    print(particiones)
-
+# len(tiemposRetorno) retorn la cantidad de procesos
+print('TIEMPO MEDIO DE RETORNO: '+ str(tiempoMedioRetorno / len(tiemposRetorno)))
+print('TIEMPO DE RETORNO DE LA TANDA: '+str(tiemposRetorno.pop()['tiempoRetorno']))

@@ -12,10 +12,10 @@ class AdminMemoria():
       self.tiempoCarga = tiempoCarga
       self.tiempoLiberacion = tiempoLiberacion
 
-      self.procesos = []
       self.particionesLiberar = []
 
       self.posUtimo = 0
+      self.arribos = True
    
 
    def arriboProceso(self, proceso:Proceso):
@@ -36,6 +36,7 @@ class AdminMemoria():
       
       # Verifica si se cargo el proceso en memoria
       if (memmoriaOld == self.memoria.libre):
+         self.arribos = False
          return False
       else:
          return True
