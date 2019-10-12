@@ -1,0 +1,226 @@
+TANDA DE TRABAJO
+P-1 Arribo:3  T.Total:8  Mem:28 Mb
+P-2 Arribo:5  T.Total:8  Mem:74 Mb
+P-3 Arribo:8  T.Total:15  Mem:73 Mb
+P-4 Arribo:9  T.Total:10  Mem:20 Mb
+P-5 Arribo:10  T.Total:12  Mem:35 Mb
+INICIAR SIMULACION
+T: 0 --> Inicializar Memoria
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:1  Tama�o:150 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 150 MB
+CANT PARTICIONES: 1
+---------------------------------
+
+T: 1:   --> Sin Arribos
+
+T: 2:   --> Sin Arribos 
+
+T: 3:   --> SELECCIONANDO PARTICION AL PROCESO: P-1 Arribo:3  T.Total:8  Mem:28 Mb MemLib: 150
+
+Estrategia: first-fit
+T: 4:   --> CARGANDO PROCESO: P-1 MemLib: 150
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:1  Tama�o:28 Mb  Estado:False   -->   |Proceso|   P-1 Arribo:3  T.Total:8  Mem:28 Mb
+ POS:1 Dir.Inicio: 28 |Particion|  ID:2  Tama�o:122 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 122 MB
+CANT PARTICIONES: 2
+---------------------------------
+
+T: 5:   --> SELECCIONANDO PARTICION AL PROCESO: P-2 Arribo:5  T.Total:8  Mem:74 Mb MemLib: 122
+
+Estrategia: first-fit
+T: 6:   --> CARGANDO PROCESO: P-2 MemLib: 122
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:1  Tama�o:28 Mb  Estado:False   -->   |Proceso|   P-1 Arribo:3  T.Total:6  Mem:28 Mb
+ POS:1 Dir.Inicio: 28 |Particion|  ID:2  Tama�o:74 Mb  Estado:False   -->   |Proceso|   P-2 Arribo:5  T.Total:8  Mem:74 Mb
+ POS:2 Dir.Inicio: 102 |Particion|  ID:3  Tama�o:48 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 48 MB
+CANT PARTICIONES: 3
+---------------------------------
+
+T: 7:   --> Sin Arribos 
+
+T: 8:   --> SELECCIONANDO PARTICION AL PROCESO: P-3 Arribo:8  T.Total:15  Mem:73 Mb MemLib: 48
+
+Estrategia: first-fit
+T: 9:   --> Sin Arribos 
+
+T: 10:   --> Sin Arribos 
+
+T: 11:   --> Sin Arribos 
+
+T: 12:   --> Sin Arribos 
+
+SACAR PROCESO: P-1 Arribo:3  T.Total:0  Mem:28 Mb
+SIN COMPACTACION
+T: 13:   --> Trabajando...  MemLib.: 76
+
+RESULTADO: 1180
+--- LIBERACION COMPLETADA ---
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:1  Tama�o:28 Mb  Estado:True   -->   |Proceso|   None
+ POS:1 Dir.Inicio: 28 |Particion|  ID:2  Tama�o:74 Mb  Estado:False   -->   |Proceso|   P-2 Arribo:5  T.Total:1  Mem:74 Mb
+ POS:2 Dir.Inicio: 102 |Particion|  ID:3  Tama�o:48 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 76 MB
+CANT PARTICIONES: 3
+---------------------------------
+
+T: 14:   --> SELECCIONANDO PARTICION AL PROCESO: P-3 Arribo:8  T.Total:15  Mem:73 Mb MemLib: 76
+
+Estrategia: first-fit
+SACAR PROCESO: P-2 Arribo:5  T.Total:0  Mem:74 Mb
+COMPACTAR PARTICION ID:2  Tama�o:74 Mb  Estado:True
+-- Desde: 0  Hasta: 2
+T: 15:   --> Trabajando...  MemLib.: 150
+
+RESULTADO: 1332
+--- LIBERACION COMPLETADA ---
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tama�o:150 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 150 MB
+CANT PARTICIONES: 1
+---------------------------------
+
+T: 16:   --> SELECCIONANDO PARTICION AL PROCESO: P-3 Arribo:8  T.Total:15  Mem:73 Mb MemLib: 150
+
+Estrategia: first-fit
+T: 17:   --> CARGANDO PROCESO: P-3 MemLib: 150
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tama�o:73 Mb  Estado:False   -->   |Proceso|   P-3 Arribo:8  T.Total:15  Mem:73 Mb
+ POS:1 Dir.Inicio: 73 |Particion|  ID:5  Tama�o:77 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 77 MB
+CANT PARTICIONES: 2
+---------------------------------
+
+T: 18:   --> SELECCIONANDO PARTICION AL PROCESO: P-4 Arribo:9  T.Total:10  Mem:20 Mb MemLib: 77
+
+Estrategia: first-fit
+T: 19:   --> CARGANDO PROCESO: P-4 MemLib: 77
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tama�o:73 Mb  Estado:False   -->   |Proceso|   P-3 Arribo:8  T.Total:13  Mem:73 Mb
+ POS:1 Dir.Inicio: 73 |Particion|  ID:5  Tama�o:20 Mb  Estado:False   -->   |Proceso|   P-4 Arribo:9  T.Total:10  Mem:20 Mb
+ POS:2 Dir.Inicio: 93 |Particion|  ID:6  Tama�o:57 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 57 MB
+CANT PARTICIONES: 3
+---------------------------------
+
+T: 20:   --> SELECCIONANDO PARTICION AL PROCESO: P-5 Arribo:10  T.Total:12  Mem:35 Mb MemLib: 57
+
+Estrategia: first-fit
+T: 21:   --> CARGANDO PROCESO: P-5 MemLib: 57
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tama�o:73 Mb  Estado:False   -->   |Proceso|   P-3 Arribo:8  T.Total:11  Mem:73 Mb
+ POS:1 Dir.Inicio: 73 |Particion|  ID:5  Tama�o:20 Mb  Estado:False   -->   |Proceso|   P-4 Arribo:9  T.Total:8  Mem:20 Mb
+ POS:2 Dir.Inicio: 93 |Particion|  ID:6  Tama�o:35 Mb  Estado:False   -->   |Proceso|   P-5 Arribo:10  T.Total:12  Mem:35 Mb
+ POS:3 Dir.Inicio: 128 |Particion|  ID:7  Tama�o:22 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 22 MB
+CANT PARTICIONES: 4
+---------------------------------
+
+T: 22:   --> Sin Arribos - Tanda Completada
+
+T: 22:   --> Sin Arribos - Tanda Completada
+
+T: 23:   --> Sin Arribos - Tanda Completada
+
+T: 23:   --> Sin Arribos - Tanda Completada
+
+T: 24:   --> Sin Arribos - Tanda Completada
+
+T: 24:   --> Sin Arribos - Tanda Completada
+
+T: 25:   --> Sin Arribos - Tanda Completada
+
+T: 25:   --> Sin Arribos - Tanda Completada
+
+T: 26:   --> Sin Arribos - Tanda Completada
+
+T: 26:   --> Sin Arribos - Tanda Completada
+
+T: 27:   --> Sin Arribos - Tanda Completada
+
+T: 27:   --> Sin Arribos - Tanda Completada
+
+T: 28:   --> Sin Arribos - Tanda Completada
+
+T: 28:   --> Sin Arribos - Tanda Completada
+
+T: 29:   --> Sin Arribos - Tanda Completada
+
+T: 29:   --> Sin Arribos - Tanda Completada
+
+SACAR PROCESO: P-4 Arribo:9  T.Total:0  Mem:20 Mb
+SIN COMPACTACION
+T: 30:   --> Trabajando...  MemLib.: 42
+
+RESULTADO: 1900
+--- LIBERACION COMPLETADA ---
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tama�o:73 Mb  Estado:False   -->   |Proceso|   P-3 Arribo:8  T.Total:2  Mem:73 Mb
+ POS:1 Dir.Inicio: 73 |Particion|  ID:5  Tama�o:20 Mb  Estado:True   -->   |Proceso|   None
+ POS:2 Dir.Inicio: 93 |Particion|  ID:6  Tama�o:35 Mb  Estado:False   -->   |Proceso|   P-5 Arribo:10  T.Total:3  Mem:35 Mb
+ POS:3 Dir.Inicio: 128 |Particion|  ID:7  Tama�o:22 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 42 MB
+CANT PARTICIONES: 4
+---------------------------------
+
+T: 31:   --> Sin Arribos - Tanda Completada
+
+T: 31:   --> Sin Arribos - Tanda Completada
+
+T: 32:   --> Sin Arribos - Tanda Completada
+
+T: 32:   --> Sin Arribos - Tanda Completada
+
+SACAR PROCESO: P-3 Arribo:8  T.Total:0  Mem:73 Mb
+COMPACTAR PARTICION ID:4  Tama�o:73 Mb  Estado:True
+-- Desde: 0  Hasta: 1
+T: 33:   --> Trabajando...  MemLib.: 115
+
+RESULTADO: 1900
+--- LIBERACION COMPLETADA ---
+
+SACAR PROCESO: P-5 Arribo:10  T.Total:0  Mem:35 Mb
+COMPACTAR PARTICION ID:6  Tama�o:35 Mb  Estado:True
+-- Desde: 0  Hasta: 2
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:9  Tama�o:150 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 150 MB
+CANT PARTICIONES: 1
+---------------------------------
+
+T: 34:   --> Trabajando...  MemLib.: 150
+
+RESULTADO: 1900
+--- LIBERACION COMPLETADA ---
+
+------ ESTADO MEMORIA ------
+ POS:0 Dir.Inicio: 0 |Particion|  ID:9  Tama�o:150 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 150 MB
+CANT PARTICIONES: 1
+---------------------------------
+
+T: 35:   --> Sin Arribos - Tanda Completada
+
+T: 35:   --> Sin Arribos - Tanda Completada
+
+ESTRATEGIA: first-fit
+FRAGMENTACION EXTERNA: 1900
+TIEMPO DE RETORNO | PROCESOS |
+| P-1 | Arribo: 3 Retorno: 13 Tiempo Retorno: 10
+| P-2 | Arribo: 5 Retorno: 15 Tiempo Retorno: 10
+| P-4 | Arribo: 9 Retorno: 30 Tiempo Retorno: 21
+| P-3 | Arribo: 8 Retorno: 33 Tiempo Retorno: 25
+| P-5 | Arribo: 10 Retorno: 34 Tiempo Retorno: 24
+TIEMPO MEDIO DE RETORNO: 18.0
+TIEMPO DE RETORNO DE LA TANDA: 34

@@ -4,9 +4,9 @@ from proceso import Proceso
 
 class Archivo():
 
-   def leer(self, nombre):
+   def leer(self, path):
       tanda = []
-      archivo = open(nombre+".txt", "r")
+      archivo = open(path, "r")
       for trabajo in archivo.readlines():
          data = trabajo.split(";")
          proceso = Proceso(
