@@ -53,6 +53,10 @@ def simular(tanda, tamañoMemoria:int, estrategia, tiempoSelecion:int, tiempoCar
    T = 0
    # Ordenar tanda por tiempo de Arribo
    procesos = sorted(tanda, key=lambda proceso: proceso.arribo)
+   print('######################################################')
+   print('#################   SIMULADOR  #######################')
+   print('#########   ADMINISTRADOR DE MEMORIA  ################')
+   print('######################################################')
    print()
    print('TANDA DE TRABAJO')
    for proceso in procesos:
@@ -204,9 +208,10 @@ def simular(tanda, tamañoMemoria:int, estrategia, tiempoSelecion:int, tiempoCar
 window = Tk() 
 # mainFrame = Frame(master=window)
 window.title("ADMINISTRADOR DE MEMORIA")
-window.geometry('850x500')
+window.geometry('550x110')
 window.filename =  filedialog.askopenfilename(initialdir = "/",title = "SELECCIONAR TANDA",filetypes = (("Txt files","*.txt"),("all files","*.*")))
 
+window.after(1, lambda: window.focus_force())
 frameCrl = Frame(window)
 frameCrl.pack( side = TOP )
 
@@ -246,6 +251,7 @@ lblTliberacion = Label(frameCrl, text="ESTRATEGIA:", justify=LEFT)
 lblTliberacion.grid(column=8, row=0) 
 
 selected = StringVar()
+selected.set('first-fit')
 rad1 = Radiobutton(frameCrl,text='First Fit', value='first-fit', variable=selected, width=10) 
 rad1.grid(column=8, row=1)
 rad2 = Radiobutton(frameCrl,text='Best Fit', value='best-fit', variable=selected, width=10) 
@@ -277,21 +283,6 @@ def clicked():
       int(tiempoCarga),
       int(tiempoLiberacion)
       )
-
-   frameSalida = Frame(window)
-   frameSalida.pack( side = TOP )
-
-   # Todos los eventos
-   consola = Text(frameSalida,height=18)
-   for dato in logs:
-      consola.insert(INSERT,dato)
-
-   consola.grid(column=1,row=15, columnspan=1, rowspan=1, sticky='W')
-   scrollbar = Scrollbar(frameSalida) # height= not permitted here!
-   consola.config(yscrollcommand= scrollbar.set, state=DISABLED)
-   scrollbar.config(command= consola.yview)
-   scrollbar.grid(column=0, row=15, rowspan=2,  sticky='W')
-   
 
 
 # Separador
