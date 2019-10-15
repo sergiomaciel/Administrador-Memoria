@@ -36,7 +36,11 @@ class AdminMemoria():
       
       # Verifica si se cargo el proceso en memoria
       if (memmoriaOld == self.memoria.libre):
-         self.arribos = False
+         if (proceso.tamaño > self.memoria.tamaño):
+            self.arribos = True
+         else:   
+            self.arribos = False
+         
          return False
       else:
          return True

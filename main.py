@@ -53,14 +53,30 @@ def simular(tanda, tamañoMemoria:int, estrategia, tiempoSelecion:int, tiempoCar
    T = 0
    # Ordenar tanda por tiempo de Arribo
    procesos = sorted(tanda, key=lambda proceso: proceso.arribo)
-   print('######################################################')
-   print('#################   SIMULADOR  #######################')
-   print('#########   ADMINISTRADOR DE MEMORIA  ################')
-   print('######################################################')
-   print()
-   print('TANDA DE TRABAJO')
+   txtIntro = "######################################################"+'\n'
+   logs.append(txtIntro)
+   print(txtIntro)
+
+   txtIntro = "#################   SIMULADOR  #######################"+'\n'
+   logs.append(txtIntro)
+   print(txtIntro)
+
+   txtIntro = "#########   ADMINISTRADOR DE MEMORIA  ################"+'\n'
+   logs.append(txtIntro)
+   print(txtIntro)
+
+   txtIntro = "######################################################"+'\n'
+   logs.append(txtIntro)
+   print(txtIntro)
+   
+   txtTandaT = ('TANDA DE TRABAJO'+'\n')
+   logs.append(txtTandaT)
+   print(txtTandaT)
+
    for proceso in procesos:
+      logs.append(str(proceso))
       print(proceso)
+      
       tandaOriginal.append(proceso)
 
    txt = 'INICIAR SIMULACION\nT: 0 --> Inicializar Memoria\n'
@@ -159,6 +175,7 @@ def simular(tanda, tamañoMemoria:int, estrategia, tiempoSelecion:int, tiempoCar
                      txt = ('T: '+str(T)+':   --> EL PROCESO: '+str(proceso.nombre)+' EXEDE EL TAMAÑO DE LA MEMORIA'+'\n')
                      logs.append(txt)
                      print(txt)
+                     procesos.pop(0)
                   
             else:
                txt = ('T: '+str(T)+':   --> Sin Arribos\n')
@@ -182,23 +199,64 @@ def simular(tanda, tamañoMemoria:int, estrategia, tiempoSelecion:int, tiempoCar
 
       else:
          simular = False
+
+   txtFin = "######################################################"+'\n'
+   logs.append(txtFin)
+   print(txtFin)
+
+   txtFin ="#################   RESULTADO  #######################"+'\n'
+   logs.append(txtFin)
+   print(txtFin)
+
+   txtFin ="######################################################"+'\n'
+   logs.append(txtFin)
+   print(txtFin)
       
-   print('ESTRATEGIA: '+admin.estrategia)
-   print('FRAGMENTACION EXTERNA: '+str(indiceFragmantacion))
-   print('TIEMPO DE RETORNO | PROCESOS | ')
+   txtEstrageia = ('ESTRATEGIA: '+admin.estrategia+'\n')
+   logs.append(txtEstrageia)
+   print(txtEstrageia)
+   
+   txtFragmentacion = ('FRAGMENTACION EXTERNA: '+str(indiceFragmantacion)+'\n')
+   logs.append(txtFragmentacion)
+   print(txtFragmentacion)
+   
+   txtTiempoRetorno = ('TIEMPO DE RETORNO | PROCESOS | '+'\n')
+   logs.append(txtTiempoRetorno)
+   print(txtTiempoRetorno)
+
    for dato in tiemposRetorno:
       tiempoRetorno = dato['tiempoRetorno'] - dato['arribo']
-      print(
+      txtTR = (
          '| '+str(dato['proceso'])+' |'+
          ' Arribo: '+str(dato['arribo'])+
          ' Retorno: '+str(dato['tiempoRetorno'])+
-         ' Tiempo Retorno: '+str(tiempoRetorno)
+         ' Tiempo Retorno: '+str(tiempoRetorno)+'\n'
       )
+      logs.append(txtTR)
+      print(txtTR)
+      
       tiempoMedioRetorno += tiempoRetorno
 
    # len(tiemposRetorno) retorn la cantidad de procesos
-   print('TIEMPO MEDIO DE RETORNO: '+ str(tiempoMedioRetorno / len(tiemposRetorno)))
-   print('TIEMPO DE RETORNO DE LA TANDA: '+str(tiemposRetorno.pop()['tiempoRetorno']))
+   tMedioRetorno = 0
+   try:
+      tMedioRetorno = tiempoMedioRetorno / len(tiemposRetorno)
+   except ZeroDivisionError:
+      pass
+
+   tiempoRetornoTanda = 0
+   try:
+      tiempoRetornoTanda = tiemposRetorno.pop()['tiempoRetorno']
+   except IndexError:
+      pass
+
+   txtTiempoMedioRetorno = ('TIEMPO MEDIO DE RETORNO: '+ str(tMedioRetorno)+'\n')
+   logs.append(txtTiempoMedioRetorno)
+   print(txtTiempoMedioRetorno)
+
+   txtTiempoRetornoTanda = ('TIEMPO DE RETORNO DE LA TANDA: '+str(tiempoRetornoTanda)+'\n')
+   logs.append(txtTiempoRetornoTanda)
+   print(txtTiempoRetornoTanda)
 
    return logs
 
@@ -283,6 +341,7 @@ def clicked():
       int(tiempoCarga),
       int(tiempoLiberacion)
       )
+   Archivo().escribir('logs', logs)
 
 
 # Separador

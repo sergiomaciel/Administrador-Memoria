@@ -20,12 +20,11 @@ class Archivo():
       archivo.close()
       return tanda
 
-   def escribir(self, nombre):
+   def escribir(self, nombre, registro):
 
       archivo = open(nombre+".txt", "w")
-      archivo.write('Hola \n')
-      # for linea in registro:
-      #    archivo.write(linea+'\n')
+      for linea in registro:
+         archivo.write(linea)
       
       archivo.close()
       pass

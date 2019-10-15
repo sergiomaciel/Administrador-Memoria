@@ -1,0 +1,356 @@
+######################################################
+#################   SIMULADOR  #######################
+#########   ADMINISTRADOR DE MEMORIA  ################
+######################################################
+TANDA DE TRABAJO
+P-9 Arribo:1  T.Total:37  Mem:52 MbP-7 Arribo:11  T.Total:37  Mem:52 MbP-4 Arribo:14  T.Total:16  Mem:90 MbP-1 Arribo:15  T.Total:9  Mem:28 MbP-3 Arribo:33  T.Total:15  Mem:73 MbP-2 Arribo:43  T.Total:46  Mem:74 MbP-5 Arribo:48  T.Total:22  Mem:35 MbP-6 Arribo:70  T.Total:29  Mem:46 MbP-10 Arribo:76  T.Total:29  Mem:46 MbP-8 Arribo:86  T.Total:29  Mem:46 MbINICIAR SIMULACION
+T: 0 --> Inicializar Memoria
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:1  Tamaño:150 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 150 MB 
+CANT PARTICIONES: 1
+---------------------------------
+T: 1:   --> SELECCIONANDO PARTICION AL PROCESO: P-9 Arribo:1  T.Total:37  Mem:52 Mb MemLib: 150
+T: 2:   --> CARGANDO PROCESO: P-9 MemLib: 150
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:1  Tamaño:52 Mb  Estado:False   -->   |Proceso|   P-9 Arribo:1  T.Total:37  Mem:52 Mb
+ POS:1 Dir.Inicio: 52 |Particion|  ID:2  Tamaño:98 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 98 MB 
+CANT PARTICIONES: 2
+---------------------------------
+T: 3:   --> Sin Arribos
+T: 4:   --> Sin Arribos
+T: 5:   --> Sin Arribos
+T: 6:   --> Sin Arribos
+T: 7:   --> Sin Arribos
+T: 8:   --> Sin Arribos
+T: 9:   --> Sin Arribos
+T: 10:   --> Sin Arribos
+T: 11:   --> SELECCIONANDO PARTICION AL PROCESO: P-7 Arribo:11  T.Total:37  Mem:52 Mb MemLib: 98
+T: 12:   --> CARGANDO PROCESO: P-7 MemLib: 98
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:1  Tamaño:52 Mb  Estado:False   -->   |Proceso|   P-9 Arribo:1  T.Total:27  Mem:52 Mb
+ POS:1 Dir.Inicio: 52 |Particion|  ID:2  Tamaño:52 Mb  Estado:False   -->   |Proceso|   P-7 Arribo:11  T.Total:37  Mem:52 Mb
+ POS:2 Dir.Inicio: 104 |Particion|  ID:3  Tamaño:46 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 46 MB 
+CANT PARTICIONES: 3
+---------------------------------
+T: 13:   --> Sin Arribos
+T: 14:   --> SELECCIONANDO PARTICION AL PROCESO: P-4 Arribo:14  T.Total:16  Mem:90 Mb MemLib: 46
+T: 15:   --> Sin Arribos
+T: 16:   --> Sin Arribos
+T: 17:   --> Sin Arribos
+T: 18:   --> Sin Arribos
+T: 19:   --> Sin Arribos
+T: 20:   --> Sin Arribos
+T: 21:   --> Sin Arribos
+T: 22:   --> Sin Arribos
+T: 23:   --> Sin Arribos
+T: 24:   --> Sin Arribos
+T: 25:   --> Sin Arribos
+T: 26:   --> Sin Arribos
+T: 27:   --> Sin Arribos
+T: 28:   --> Sin Arribos
+T: 29:   --> Sin Arribos
+T: 30:   --> Sin Arribos
+T: 31:   --> Sin Arribos
+T: 32:   --> Sin Arribos
+T: 33:   --> Sin Arribos
+T: 34:   --> Sin Arribos
+T: 35:   --> Sin Arribos
+T: 36:   --> Sin Arribos
+T: 37:   --> Sin Arribos
+T: 38:   --> Sin Arribos
+T: 39:   --> Sin Arribos
+T: 40:   --> Trabajando...  MemLib.: 98
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:1  Tamaño:52 Mb  Estado:True   -->   |Proceso|   None
+ POS:1 Dir.Inicio: 52 |Particion|  ID:2  Tamaño:52 Mb  Estado:False   -->   |Proceso|   P-7 Arribo:11  T.Total:9  Mem:52 Mb
+ POS:2 Dir.Inicio: 104 |Particion|  ID:3  Tamaño:46 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 98 MB 
+CANT PARTICIONES: 3
+---------------------------------
+T: 41:   --> SELECCIONANDO PARTICION AL PROCESO: P-4 Arribo:14  T.Total:16  Mem:90 Mb MemLib: 98
+T: 42:   --> Sin Arribos
+T: 43:   --> Sin Arribos
+T: 44:   --> Sin Arribos
+T: 45:   --> Sin Arribos
+T: 46:   --> Sin Arribos
+T: 47:   --> Sin Arribos
+T: 48:   --> Sin Arribos
+T: 49:   --> Sin Arribos
+T: 50:   --> Trabajando...  MemLib.: 150
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tamaño:150 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 150 MB 
+CANT PARTICIONES: 1
+---------------------------------
+T: 51:   --> SELECCIONANDO PARTICION AL PROCESO: P-4 Arribo:14  T.Total:16  Mem:90 Mb MemLib: 150
+T: 52:   --> CARGANDO PROCESO: P-4 MemLib: 150
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tamaño:90 Mb  Estado:False   -->   |Proceso|   P-4 Arribo:14  T.Total:16  Mem:90 Mb
+ POS:1 Dir.Inicio: 90 |Particion|  ID:5  Tamaño:60 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 60 MB 
+CANT PARTICIONES: 2
+---------------------------------
+T: 53:   --> SELECCIONANDO PARTICION AL PROCESO: P-1 Arribo:15  T.Total:9  Mem:28 Mb MemLib: 60
+T: 54:   --> CARGANDO PROCESO: P-1 MemLib: 60
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tamaño:90 Mb  Estado:False   -->   |Proceso|   P-4 Arribo:14  T.Total:14  Mem:90 Mb
+ POS:1 Dir.Inicio: 90 |Particion|  ID:5  Tamaño:28 Mb  Estado:False   -->   |Proceso|   P-1 Arribo:15  T.Total:9  Mem:28 Mb
+ POS:2 Dir.Inicio: 118 |Particion|  ID:6  Tamaño:32 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 32 MB 
+CANT PARTICIONES: 3
+---------------------------------
+T: 55:   --> SELECCIONANDO PARTICION AL PROCESO: P-3 Arribo:33  T.Total:15  Mem:73 Mb MemLib: 32
+T: 56:   --> Sin Arribos
+T: 57:   --> Sin Arribos
+T: 58:   --> Sin Arribos
+T: 59:   --> Sin Arribos
+T: 60:   --> Sin Arribos
+T: 61:   --> Sin Arribos
+T: 62:   --> Sin Arribos
+T: 63:   --> Sin Arribos
+T: 64:   --> Trabajando...  MemLib.: 60
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:4  Tamaño:90 Mb  Estado:False   -->   |Proceso|   P-4 Arribo:14  T.Total:4  Mem:90 Mb
+ POS:1 Dir.Inicio: 90 |Particion|  ID:7  Tamaño:60 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 60 MB 
+CANT PARTICIONES: 2
+---------------------------------
+T: 65:   --> SELECCIONANDO PARTICION AL PROCESO: P-3 Arribo:33  T.Total:15  Mem:73 Mb MemLib: 60
+T: 66:   --> Sin Arribos
+T: 67:   --> Sin Arribos
+T: 68:   --> Sin Arribos
+T: 69:   --> Trabajando...  MemLib.: 150
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:8  Tamaño:150 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 150 MB 
+CANT PARTICIONES: 1
+---------------------------------
+T: 70:   --> SELECCIONANDO PARTICION AL PROCESO: P-3 Arribo:33  T.Total:15  Mem:73 Mb MemLib: 150
+T: 71:   --> CARGANDO PROCESO: P-3 MemLib: 150
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:8  Tamaño:73 Mb  Estado:False   -->   |Proceso|   P-3 Arribo:33  T.Total:15  Mem:73 Mb
+ POS:1 Dir.Inicio: 73 |Particion|  ID:9  Tamaño:77 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 77 MB 
+CANT PARTICIONES: 2
+---------------------------------
+T: 72:   --> SELECCIONANDO PARTICION AL PROCESO: P-2 Arribo:43  T.Total:46  Mem:74 Mb MemLib: 77
+T: 73:   --> CARGANDO PROCESO: P-2 MemLib: 77
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:8  Tamaño:73 Mb  Estado:False   -->   |Proceso|   P-3 Arribo:33  T.Total:13  Mem:73 Mb
+ POS:1 Dir.Inicio: 73 |Particion|  ID:9  Tamaño:74 Mb  Estado:False   -->   |Proceso|   P-2 Arribo:43  T.Total:46  Mem:74 Mb
+ POS:2 Dir.Inicio: 147 |Particion|  ID:10  Tamaño:3 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 3 MB 
+CANT PARTICIONES: 3
+---------------------------------
+T: 74:   --> SELECCIONANDO PARTICION AL PROCESO: P-5 Arribo:48  T.Total:22  Mem:35 Mb MemLib: 3
+T: 75:   --> Sin Arribos
+T: 76:   --> Sin Arribos
+T: 77:   --> Sin Arribos
+T: 78:   --> Sin Arribos
+T: 79:   --> Sin Arribos
+T: 80:   --> Sin Arribos
+T: 81:   --> Sin Arribos
+T: 82:   --> Sin Arribos
+T: 83:   --> Sin Arribos
+T: 84:   --> Sin Arribos
+T: 85:   --> Sin Arribos
+T: 86:   --> Sin Arribos
+T: 87:   --> Trabajando...  MemLib.: 76
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:8  Tamaño:73 Mb  Estado:True   -->   |Proceso|   None
+ POS:1 Dir.Inicio: 73 |Particion|  ID:9  Tamaño:74 Mb  Estado:False   -->   |Proceso|   P-2 Arribo:43  T.Total:32  Mem:74 Mb
+ POS:2 Dir.Inicio: 147 |Particion|  ID:10  Tamaño:3 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 76 MB 
+CANT PARTICIONES: 3
+---------------------------------
+T: 88:   --> SELECCIONANDO PARTICION AL PROCESO: P-5 Arribo:48  T.Total:22  Mem:35 Mb MemLib: 76
+T: 89:   --> CARGANDO PROCESO: P-5 MemLib: 76
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:8  Tamaño:35 Mb  Estado:False   -->   |Proceso|   P-5 Arribo:48  T.Total:22  Mem:35 Mb
+ POS:1 Dir.Inicio: 35 |Particion|  ID:11  Tamaño:38 Mb  Estado:True   -->   |Proceso|   None
+ POS:2 Dir.Inicio: 73 |Particion|  ID:9  Tamaño:74 Mb  Estado:False   -->   |Proceso|   P-2 Arribo:43  T.Total:30  Mem:74 Mb
+ POS:3 Dir.Inicio: 147 |Particion|  ID:10  Tamaño:3 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 41 MB 
+CANT PARTICIONES: 4
+---------------------------------
+T: 90:   --> SELECCIONANDO PARTICION AL PROCESO: P-6 Arribo:70  T.Total:29  Mem:46 Mb MemLib: 41
+T: 91:   --> Sin Arribos
+T: 92:   --> Sin Arribos
+T: 93:   --> Sin Arribos
+T: 94:   --> Sin Arribos
+T: 95:   --> Sin Arribos
+T: 96:   --> Sin Arribos
+T: 97:   --> Sin Arribos
+T: 98:   --> Sin Arribos
+T: 99:   --> Sin Arribos
+T: 100:   --> Sin Arribos
+T: 101:   --> Sin Arribos
+T: 102:   --> Sin Arribos
+T: 103:   --> Sin Arribos
+T: 104:   --> Sin Arribos
+T: 105:   --> Sin Arribos
+T: 106:   --> Sin Arribos
+T: 107:   --> Sin Arribos
+T: 108:   --> Sin Arribos
+T: 109:   --> Sin Arribos
+T: 110:   --> Sin Arribos
+T: 111:   --> Sin Arribos
+T: 112:   --> Trabajando...  MemLib.: 76
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:12  Tamaño:73 Mb  Estado:True   -->   |Proceso|   None
+ POS:1 Dir.Inicio: 73 |Particion|  ID:9  Tamaño:74 Mb  Estado:False   -->   |Proceso|   P-2 Arribo:43  T.Total:7  Mem:74 Mb
+ POS:2 Dir.Inicio: 147 |Particion|  ID:10  Tamaño:3 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 76 MB 
+CANT PARTICIONES: 3
+---------------------------------
+T: 113:   --> SELECCIONANDO PARTICION AL PROCESO: P-6 Arribo:70  T.Total:29  Mem:46 Mb MemLib: 76
+T: 114:   --> CARGANDO PROCESO: P-6 MemLib: 76
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:12  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-6 Arribo:70  T.Total:29  Mem:46 Mb
+ POS:1 Dir.Inicio: 46 |Particion|  ID:13  Tamaño:27 Mb  Estado:True   -->   |Proceso|   None
+ POS:2 Dir.Inicio: 73 |Particion|  ID:9  Tamaño:74 Mb  Estado:False   -->   |Proceso|   P-2 Arribo:43  T.Total:5  Mem:74 Mb
+ POS:3 Dir.Inicio: 147 |Particion|  ID:10  Tamaño:3 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 30 MB 
+CANT PARTICIONES: 4
+---------------------------------
+T: 115:   --> SELECCIONANDO PARTICION AL PROCESO: P-10 Arribo:76  T.Total:29  Mem:46 Mb MemLib: 30
+T: 116:   --> Sin Arribos
+T: 117:   --> Sin Arribos
+T: 118:   --> Sin Arribos
+T: 119:   --> Sin Arribos
+T: 120:   --> Trabajando...  MemLib.: 104
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:12  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-6 Arribo:70  T.Total:23  Mem:46 Mb
+ POS:1 Dir.Inicio: 46 |Particion|  ID:14  Tamaño:104 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 104 MB 
+CANT PARTICIONES: 2
+---------------------------------
+T: 121:   --> SELECCIONANDO PARTICION AL PROCESO: P-10 Arribo:76  T.Total:29  Mem:46 Mb MemLib: 104
+T: 122:   --> CARGANDO PROCESO: P-10 MemLib: 104
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:12  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-6 Arribo:70  T.Total:21  Mem:46 Mb
+ POS:1 Dir.Inicio: 46 |Particion|  ID:14  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-10 Arribo:76  T.Total:29  Mem:46 Mb
+ POS:2 Dir.Inicio: 92 |Particion|  ID:15  Tamaño:58 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 58 MB 
+CANT PARTICIONES: 3
+---------------------------------
+T: 123:   --> SELECCIONANDO PARTICION AL PROCESO: P-8 Arribo:86  T.Total:29  Mem:46 Mb MemLib: 58
+T: 124:   --> CARGANDO PROCESO: P-8 MemLib: 58
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:12  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-6 Arribo:70  T.Total:19  Mem:46 Mb
+ POS:1 Dir.Inicio: 46 |Particion|  ID:14  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-10 Arribo:76  T.Total:27  Mem:46 Mb
+ POS:2 Dir.Inicio: 92 |Particion|  ID:15  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-8 Arribo:86  T.Total:29  Mem:46 Mb
+ POS:3 Dir.Inicio: 138 |Particion|  ID:16  Tamaño:12 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 12 MB 
+CANT PARTICIONES: 4
+---------------------------------
+T: 125:   --> Sin Arribos - Tanda Completada
+T: 125:   --> Sin Arribos - Tanda Completada
+T: 126:   --> Sin Arribos - Tanda Completada
+T: 126:   --> Sin Arribos - Tanda Completada
+T: 127:   --> Sin Arribos - Tanda Completada
+T: 127:   --> Sin Arribos - Tanda Completada
+T: 128:   --> Sin Arribos - Tanda Completada
+T: 128:   --> Sin Arribos - Tanda Completada
+T: 129:   --> Sin Arribos - Tanda Completada
+T: 129:   --> Sin Arribos - Tanda Completada
+T: 130:   --> Sin Arribos - Tanda Completada
+T: 130:   --> Sin Arribos - Tanda Completada
+T: 131:   --> Sin Arribos - Tanda Completada
+T: 131:   --> Sin Arribos - Tanda Completada
+T: 132:   --> Sin Arribos - Tanda Completada
+T: 132:   --> Sin Arribos - Tanda Completada
+T: 133:   --> Sin Arribos - Tanda Completada
+T: 133:   --> Sin Arribos - Tanda Completada
+T: 134:   --> Sin Arribos - Tanda Completada
+T: 134:   --> Sin Arribos - Tanda Completada
+T: 135:   --> Sin Arribos - Tanda Completada
+T: 135:   --> Sin Arribos - Tanda Completada
+T: 136:   --> Sin Arribos - Tanda Completada
+T: 136:   --> Sin Arribos - Tanda Completada
+T: 137:   --> Sin Arribos - Tanda Completada
+T: 137:   --> Sin Arribos - Tanda Completada
+T: 138:   --> Sin Arribos - Tanda Completada
+T: 138:   --> Sin Arribos - Tanda Completada
+T: 139:   --> Sin Arribos - Tanda Completada
+T: 139:   --> Sin Arribos - Tanda Completada
+T: 140:   --> Sin Arribos - Tanda Completada
+T: 140:   --> Sin Arribos - Tanda Completada
+T: 141:   --> Sin Arribos - Tanda Completada
+T: 141:   --> Sin Arribos - Tanda Completada
+T: 142:   --> Sin Arribos - Tanda Completada
+T: 142:   --> Sin Arribos - Tanda Completada
+T: 143:   --> Sin Arribos - Tanda Completada
+T: 143:   --> Sin Arribos - Tanda Completada
+T: 144:   --> Trabajando...  MemLib.: 58
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:12  Tamaño:46 Mb  Estado:True   -->   |Proceso|   None
+ POS:1 Dir.Inicio: 46 |Particion|  ID:14  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-10 Arribo:76  T.Total:7  Mem:46 Mb
+ POS:2 Dir.Inicio: 92 |Particion|  ID:15  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-8 Arribo:86  T.Total:9  Mem:46 Mb
+ POS:3 Dir.Inicio: 138 |Particion|  ID:16  Tamaño:12 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 58 MB 
+CANT PARTICIONES: 4
+---------------------------------
+T: 145:   --> Sin Arribos - Tanda Completada
+T: 145:   --> Sin Arribos - Tanda Completada
+T: 146:   --> Sin Arribos - Tanda Completada
+T: 146:   --> Sin Arribos - Tanda Completada
+T: 147:   --> Sin Arribos - Tanda Completada
+T: 147:   --> Sin Arribos - Tanda Completada
+T: 148:   --> Sin Arribos - Tanda Completada
+T: 148:   --> Sin Arribos - Tanda Completada
+T: 149:   --> Sin Arribos - Tanda Completada
+T: 149:   --> Sin Arribos - Tanda Completada
+T: 150:   --> Sin Arribos - Tanda Completada
+T: 150:   --> Sin Arribos - Tanda Completada
+T: 151:   --> Sin Arribos - Tanda Completada
+T: 151:   --> Sin Arribos - Tanda Completada
+T: 152:   --> Trabajando...  MemLib.: 104
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:17  Tamaño:92 Mb  Estado:True   -->   |Proceso|   None
+ POS:1 Dir.Inicio: 92 |Particion|  ID:15  Tamaño:46 Mb  Estado:False   -->   |Proceso|   P-8 Arribo:86  T.Total:1  Mem:46 Mb
+ POS:2 Dir.Inicio: 138 |Particion|  ID:16  Tamaño:12 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 104 MB 
+CANT PARTICIONES: 3
+---------------------------------
+T: 153:   --> Sin Arribos - Tanda Completada
+T: 153:   --> Sin Arribos - Tanda Completada
+T: 154:   --> Trabajando...  MemLib.: 150
+--- LIBERACION COMPLETADA ---
+------ ESTADO MEMORIA ------ 
+ POS:0 Dir.Inicio: 0 |Particion|  ID:18  Tamaño:150 Mb  Estado:True   -->   |Proceso|   None
+MEMORIA LIBRE: 150 MB 
+CANT PARTICIONES: 1
+---------------------------------
+T: 155:   --> Sin Arribos - Tanda Completada
+T: 155:   --> Sin Arribos - Tanda Completada
+######################################################
+#################   RESULTADO  #######################
+######################################################
+ESTRATEGIA: first-fit
+FRAGMENTACION EXTERNA: 6835
+TIEMPO DE RETORNO | PROCESOS | 
+| P-9 | Arribo: 1 Retorno: 40 Tiempo Retorno: 39
+| P-7 | Arribo: 11 Retorno: 50 Tiempo Retorno: 39
+| P-1 | Arribo: 15 Retorno: 64 Tiempo Retorno: 49
+| P-4 | Arribo: 14 Retorno: 69 Tiempo Retorno: 55
+| P-3 | Arribo: 33 Retorno: 87 Tiempo Retorno: 54
+| P-5 | Arribo: 48 Retorno: 112 Tiempo Retorno: 64
+| P-2 | Arribo: 43 Retorno: 120 Tiempo Retorno: 77
+| P-6 | Arribo: 70 Retorno: 144 Tiempo Retorno: 74
+| P-10 | Arribo: 76 Retorno: 152 Tiempo Retorno: 76
+| P-8 | Arribo: 86 Retorno: 154 Tiempo Retorno: 68
+TIEMPO MEDIO DE RETORNO: 59.5
+TIEMPO DE RETORNO DE LA TANDA: 154
